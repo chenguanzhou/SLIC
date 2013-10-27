@@ -3,7 +3,7 @@ project (slic)
 
 # The version number.
 set (slic_VERSION_MAJOR 0)
-set (slic_VERSION_MINOR 0)
+set (slic_VERSION_MINOR 1)
 
 # Debug||Release
 set(CMAKE_BUILD_TYPE Release)

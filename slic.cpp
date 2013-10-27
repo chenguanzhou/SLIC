@@ -91,8 +91,8 @@ void Slic::_InitCenterFeature(int i, int j, FeatureVector &featureVec)
     _poSrcDS->RasterIO(GF_Read,j-2,i-2,5,5,buffer,5,5,_dataType,_bandCount,0,0,0,0);
 
     double minEdge = std::numeric_limits<double>::max();
-    double minN;
-    double minM;
+    int minN;
+    int minM;
     for (int n=1;n<4;++n)
     {
         for(int m=1;m<4;++m)

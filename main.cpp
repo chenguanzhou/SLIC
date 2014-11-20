@@ -1,7 +1,7 @@
 #include "slic.h"
 #include <gdal_priv.h>
 #include <iostream>
-#include <time.h>
+#include <ctime>
 
 //G:\Document\data\clip-武大\江南集中区-后时相.tif G:\Document\data\clip-武大\后时相superpixel.tif 40 100
 //G:\0804_1w_mosaic_218.img G:\0804.tif 40 100
@@ -43,6 +43,6 @@ int main(int argc , char** argv)
     GDALClose(poDstDS);
 
 
-    std::cout<<"cost "<<(clock()-t1)/1000.<<"s"<<std::endl;
+    std::cout<<"cost "<<static_cast<double>(clock()-t1)/CLOCKS_PER_SEC <<"s"<<std::endl;
     return 0;
 }

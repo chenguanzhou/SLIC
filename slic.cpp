@@ -192,7 +192,7 @@ void Slic::_GenerateSuperpixels()
 
         omp_destroy_lock(&lock);
         _ComputeNewCenterVector();
-        std::cout<<"This circle cost: "<<(clock()-t1)/1000.<<"s"<<std::endl;
+        std::cout<<"This circle cost: "<<static_cast<double>(clock()-t1)/CLOCKS_PER_SEC<<"s"<<std::endl;
     }
 
 

@@ -30,7 +30,7 @@ bool Slic::StartSegmentation()
         return false;
 
     _GenerateSuperpixels();
-    _ElininateSmallSuperpixel();
+//    _ElininateSmallSuperpixel();
 
     return true;
 }
@@ -204,6 +204,8 @@ int Slic::_GetNearestCenter(const std::vector< int > &candidateCenterID,const Fe
     int nMinID = 0;
     for (std::vector< int >::const_iterator iter = candidateCenterID.begin();iter!=candidateCenterID.end();++iter)
     {
+        if (fabs(_centerVector[*iter][_bandCount]-featureVec[_bandCount])>1 || fabs(_centerVector[*iter][_bandCount+1]-featureVec[_bandCount+1])>1)
+            continue;
         double dis = _ComputeDistance(_centerVector[*iter],featureVec);
         if ( dis < minDis)
         {

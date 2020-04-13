@@ -277,6 +277,12 @@ void Slic::_ComputeNewCenterVector()
 
 void Slic::_ElininateSmallSuperpixel()
 {
+#define USEGDALFUNC
+#ifdefine USEGDALFUNC
+    int nMinSize = _width * _height / _regionSize;
+    nMinSize = nMinSize >> 2;
+    GDALSieveFilter(_poDstDS->GetRasterBand(1), NULL, _poDstDS->GetRasterBand(1), nMinSize, 4, NULL, NULL, NULL);
+#else
     int* bufferOldResult= new int[_width];
     int* bufferResult   = new int[_width];
     int* bufferUp       = new int[_width];
@@ -340,6 +346,7 @@ void Slic::_ElininateSmallSuperpixel()
     delete []bufferCurrent ;
     delete []bufferDown ;
     delete []bufferOldResult ;
+#endif
 }
 
 

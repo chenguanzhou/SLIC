@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <gdal_priv.h>
+#include <gdal_alg.h>
 
 typedef std::vector<double> FeatureVector;
 
